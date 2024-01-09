@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
 class CommentController extends Controller
 {
@@ -17,9 +18,11 @@ class CommentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($post_id)
     {
-        //
+        $post = Comment::find($post_id);
+        dd($post);
+        return view('comments.index',['id' => $post]);
     }
 
     /**

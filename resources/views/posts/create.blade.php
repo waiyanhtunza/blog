@@ -9,6 +9,8 @@
     <title>Document</title>
 </head>
 <body>
+
+    <a href="{{route('postslist')}}"><--</a>
     <h1 class="text-center text-3xl font-bold m-5 text-cyan-600">Create New Post</h1>
     <div class="w-10/12 m-auto">
 

@@ -13,12 +13,16 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
+
+        // dd($posts);
         
         return view('postslist',['posts' => $posts]);
     }
 
-    public function postDetails(){
-        return view('posts.index');
+    public function postDetails($id){
+
+        $post = Post::find($id);
+        return view('posts.index',['post' => $post]);
     }
 
     /**
@@ -43,7 +47,7 @@ class PostController extends Controller
             
         ]);
         $fileName = time() . '.' . $request->image->getClientOriginalName();
-        $request->image->storeAs('public/storge/post-photo', $fileName);
+        $request->image->move('storage/post-photo', $fileName);
 
         $newPost = new Post;
         $newPost->title = $data['title'];
@@ -57,9 +61,11 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show( $id)
     {
-        //
+        $post = Post::find($id);
+        
+        return view('post.index',['id' => $post]);
     }
 
     /**
