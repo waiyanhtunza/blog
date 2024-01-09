@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,7 @@
 <body>
     <div class="flex items-end  ">   
         <h1 class="text-7xl font-bold mt-5 text-center w-10/12">Daily Posts From Myanmar</h1>
-        <a href="{{route('posts.create')}}" class="bg-cyan-500 text-slate-900 font-bold h-8 w-40 rounded-lg flex items-center justify-center">Create New Post</a>
+        <a href="{{route('posts.create')}}" class="bg-gray-500/[0.4] text-slate-900 font-bold h-8 w-40 rounded-lg flex items-center justify-center">Create New Post</a>
 
     </div>
 
@@ -26,9 +26,21 @@
                         <img src="{{ asset('storage/post-photo/' . $post->image) }}" alt="" class="h-40 w-full rounded-lg ">
                         
 
-                        <a href="{{route('posts.index',['id' => $post->id])}}">
-                            <span class="text-sm text-sky-500 hover:underline">{{ Str::limit($post->description, 100) }}</span>
-                        </a>
+                        <div class="h-20">
+                            <a href="{{route('posts.index',['id' => $post->id])}}" class="h-40">
+                                <span class="text-sm  text-gray-500 hover:underline">{{ Str::limit($post->description, 100) }}</span>
+                            </a>
+                        </div>
+                       
+
+                        <div class="w-10 bg-gray-500 text-center rounded-lg text-sm text-white">
+                            <form action="{{route('posts.edit',['id' => $post->id])}}" method="get" class=" ">
+                                @csrf
+                                @method('get')
+                                <button class="rounded-lg">Edit</button>
+                            </form>
+                        </div>
+                        
                     </div>
             </div>
         @endforeach

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -72,9 +73,11 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+       
+        $post = Post::find($id);
+        return view("posts.edit", ["post"=> $post]);
     }
 
     /**
@@ -82,7 +85,27 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $post = Post::find($id);
+        if($request->hasFile('image')){
+            $fileName = time() . '.' . $request->image->getClientOriginalName();
+            $request->image->move('storage/post-photo', $fileName);
+
+            if(File::exists(public_path('storage/post-photo/'. $post->image))) {
+                File::delete(public_path('storage/post-photo/'. $post->image));
+            }
+        } else {
+            $fileName = $post->image;
+        }
+
+        $title = $request->title;
+        $description = $request->description;
+
+        $post->title = $title;
+        $post->description = $description;
+        $post->image = $fileName;
+        $post->save();
+
+        return redirect()->route('postslist');
     }
 
     /**

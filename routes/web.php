@@ -25,5 +25,7 @@ Route::get('/posts/{id}/index', [PostController::class, 'postDetails'])->name('p
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::post('/', [PostController::class, 'store'])->name('posts.store');
 Route::post('/posts/{id}/index',[CommentController::class,'create'])->name('comments.create');
+Route::get('/posts/{id}/edit',[PostController::class,'edit'])->name('posts.edit');
+Route::put('/posts/{id}/update',[PostController::class,'update'])->name('posts.update');
 
 
