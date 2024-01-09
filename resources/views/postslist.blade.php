@@ -15,18 +15,18 @@
     </div>
 
 
-    <div class="w-8/12 h-full mx-auto mt-6 grid grid-flow-row justify-items-center grid-cols-4 gap-4  ">
+    <div class="w-8/12 h-full mx-auto mt-6 grid grid-flow-row justify-items-center grid-cols-2 md:grid-cols-4 gap-4  ">
 
         
         @foreach ($posts as $post )
-            <div class="w-72 h-96 bg-white border rounded-lg">
-                    <div class="p-4 h-full">
-                        <h1 class="text-lg h-20">{{$post->title}}</h1>
+            <div class="w-60 h-96 bg-white border rounded-lg md:w-72 m-5">
+                    <div class="p-4 h-full mx-4">
+                        <h1 class="text-lg h-16">{{$post->title}}</h1>
                        
                         <img src="{{ asset('storage/post-photo/' . $post->image) }}" alt="" class="h-40 w-full rounded-lg ">
                         
 
-                        <div class="h-20">
+                        <div class="h-20 mb-4">
                             <a href="{{route('posts.index',['id' => $post->id])}}" class="h-40">
                                 <span class="text-sm  text-gray-500 hover:underline">{{ Str::limit($post->description, 100) }}</span>
                             </a>
@@ -40,14 +40,9 @@
                                 <button class="rounded-lg">Edit</button>
                             </form>
                         </div>
-                        
                     </div>
             </div>
         @endforeach
-
-        
-        
-        
     </div>
 </body>
 </html>

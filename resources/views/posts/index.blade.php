@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="w-1/3 m-auto py-4">
+    <div class="w-2/3 m-auto py-4 md:w-1/3">
         
         
             <div class="flex">
