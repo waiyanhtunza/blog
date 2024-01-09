@@ -21,7 +21,7 @@
         @foreach ($posts as $post )
             <div class="w-72 h-96 bg-white border rounded-lg">
                     <div class="p-4 h-full">
-                        <h1 class="text-lg">{{$post->title}}</h1>
+                        <h1 class="text-lg h-20">{{$post->title}}</h1>
                        
                         <img src="{{ asset('storage/post-photo/' . $post->image) }}" alt="" class="h-40 w-full rounded-lg ">
                         

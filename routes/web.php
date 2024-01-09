@@ -26,3 +26,4 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('posts.crea
 Route::post('/', [PostController::class, 'store'])->name('posts.store');
 Route::post('/posts/{id}/index',[CommentController::class,'create'])->name('comments.create');
 
+
