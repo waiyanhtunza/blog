@@ -23,7 +23,7 @@
             <p class=" shadow-lg p-2 my-4 rounded-lg ">{{$post->description}}</p>
 
             <div class="bg-gray-500/[0.4] text-center">
-                <a href="{{route('postslist')}}">Go To Page List</a>
+                <a href="{{route('postslist')}}">Go To Posts List</a>
             </div>
 
             <div class="mt-8">

@@ -10,8 +10,8 @@
 </head>
 <body>
 
-    <a href="{{route('postslist')}}"><--</a>
     <h1 class="text-center text-3xl font-bold m-5 text-cyan-600">Create New Post</h1>
+    
     <div class="w-10/12 m-auto">
 
         
@@ -31,8 +31,11 @@
             
            
 
-            <div class="grid justify-end mt-5">
-                <button type="submit" class="flex mr-auto  px-3 py-2  bg-gray-500/[0.4] rounded-lg">Add New Post</button>
+            <div class="grid grid-flow-col justify-end mt-5">
+               
+                    <a  href="{{route('postslist')}}" type="submit" class="flex px-3 py-2 mx-4 bg-gray-500/[0.4] rounded-lg ">Cancel</a>
+            
+                <button type="submit" class="flex px-3 py-2  bg-gray-500/[0.4] rounded-lg">Add New Post</button>
             </div>
         </form>
     </div>

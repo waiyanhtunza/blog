@@ -29,8 +29,9 @@
             
            
 
-            <div class="grid justify-end mt-5">
-                <button type="submit" class="flex mr-auto  px-3 py-2  bg-gray-500/[0.4] rounded-lg">Update</button>
+            <div class="grid grid-flow-col justify-end mt-5">
+                <a href="{{route('postslist')}}" type="submit" class="flex mx-4 px-3 py-2  bg-gray-500/[0.4] rounded-lg">Cancel</a>
+                <button type="submit" class="flex  px-3 py-2  bg-gray-500/[0.4] rounded-lg">Update</button>
             </div>
         </form>
     </div>
