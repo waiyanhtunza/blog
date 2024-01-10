@@ -23,12 +23,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'index'])->name('postslist');
 Route::get('/posts/{id}/index', [PostController::class, 'postDetails'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
-Route::post('/', [PostController::class, 'store'])->name('posts.store');
+Route::post('/store', [PostController::class, 'store'])->name('posts.store');
 Route::post('/posts/{id}/index',[CommentController::class,'create'])->name('comments.create');
 Route::get('/posts/{id}/edit',[PostController::class,'edit'])->name('posts.edit');
 Route::put('/posts/{id}/update',[PostController::class,'update'])->name('posts.update');
 
-Route::post('/register',[UserController::class, 'index'])->name('register');
+Route::get('/register',[UserController::class, 'create'])->name('register');
+Route::post('/register',[UserController::class, 'store'])->name('register.store');
+Route::get('/login',[UserController::class, 'index'])->name('login');
+Route::post('/',[UserController::class, 'show'])->name('auth.show');
 
 
 

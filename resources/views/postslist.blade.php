@@ -18,7 +18,7 @@
     <div class="w-8/12 h-full mx-auto mt-6 grid grid-flow-row justify-items-center grid-cols-2 md:grid-cols-4 gap-4  ">
         
         @foreach ($posts as $post )
-            <div class="w-60 h-96 bg-white border rounded-lg md:w-72 m-5">
+            <div class="w-72 h-96 bg-white border rounded-lg ">
                     <div class="p-2 h-full mx-4">
                         <h1 class="text-lg h-16">{{$post->title}}</h1>
                        
@@ -26,9 +26,12 @@
                         
 
                         <div class="h-20 mb-4">
-                            <a href="{{route('posts.index',['id' => $post->id])}}" class="h-40">
-                                <span class="text-sm  text-gray-500 hover:underline">{{ Str::limit($post->description, 10) }}</span>
-                            </a>
+                            <span class="text-sm text-gray-500 ">{{ Str::limit($post->description, 30) }}
+                                <br>
+                                <a href="{{route('posts.index',['id' => $post->id])}}" class="h-40 hover:underline">
+                                    Read More ....
+                                </a>
+                            </span>
                         </div>
                        
 
