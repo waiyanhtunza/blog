@@ -99,7 +99,6 @@ class PostController extends Controller
 
         $title = $request->title;
         $description = $request->description;
-
         $post->title = $title;
         $post->description = $description;
         $post->image = $fileName;
